@@ -1,0 +1,126 @@
+body {
+    font-family: Arial;
+    font-size: 14px;
+}
+.logo {
+    font-size: 20em;
+    font-weight: bolder;
+    letter-spacing: -6px;
+    color: #222;
+    margin: 20px 30px;
+}
+.logo .number {
+    color: #222;
+    opacity: 0.1;
+}
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.navigation li {
+    float: right;
+}
+.navigation li a {
+    font-size:20px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.navigation li a:hover {
+    background-color: #111;
+}
+.title {
+   text-align:center;
+   font-size: 4em;
+}
+.home {
+  background:url('https://static.pexels.com/photos/279/black-and-white-branches-tree-high.jpg') no-repeat center center;
+  background-size:cover;
+  height:45em;
+}
+.home p {
+   margin: auto;
+   position: absolute;
+   text-align: center;
+   font-size: 3em;
+   border: 6px solid #000;
+   width: 10em;
+   
+}
+.middle-pannel {
+   width: 50%; 
+   height: 50%;
+   min-width: 200px;
+   max-width: 400px;
+   padding: 40px;
+}
+.containerHome {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.containerHome p {
+    font-size: 2em;
+}
+.containerHome a {
+    font-weight: bold;
+}
+.container {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 33px;
+}
+.container a {
+    color: #222;
+}
+.container table {
+    font-size: 11px;
+    margin-top: 20px;
+}
+.container table thead td {
+    background-color: #f5f5f5;
+    padding: 4px 10px;
+}
+.container table tbody td {
+    padding: 4px 10px;
+}
+.container .box {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 30px;
+}
+.container input {
+    background-color: #f5f5f5;
+    border: 0;
+    padding: 5px 10px;
+}
+.container input[type="submit"] {
+    background-color: #ccc;
+    cursor: pointer;
+}
+.container input[type="submit"]:hover {
+    background-color: #222;
+    color: #fff;
+}
+.container button {
+    border: 0;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.footer {
+    padding: 20px;
+    margin: 33px;
+    text-align: right;
+    font-size: 11px;
+    opacity: 0.5;
+}
+.footer a {
+    color: #454545;
+}

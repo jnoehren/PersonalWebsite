@@ -1,0 +1,108 @@
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 14px;
+}i
+.navigation{
+    position:fixed;
+}
+.navigation img{
+    width:1.5em;
+    height:1.5em;
+}
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+.navigation li {
+    float: right;
+}
+.navigation li a {
+    font-size:20px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.title {
+   text-align:center;
+   font-size: 4em;
+}
+.home {
+  background:url('https://static.pexels.com/photos/279/black-and-white-branches-tree-high.jpg') no-repeat center center;
+  background-size:cover;
+  height:45em;
+  text-align:center;
+}
+.home p {
+   padding-top: 3em;
+   margin:auto;
+   text-align: center;
+   font-size: 4.5em;
+   color: #fff;
+   text-shadow: 5px 5px #000;  
+   
+}
+.middle-pannel {
+   text-align:center; 
+   min-width: 200px;
+   max-width: 400px;
+   padding: 40px;
+}
+.about p {
+    font-size: 2em;
+}
+.about a {
+    font-weight: bold;
+}
+.content {
+    font-size: 1.1em;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+.about {
+    padding-top: 3em;
+    margin-left:0em;
+    margin-right:0em;
+}
+@media screen and (min-width:420px){
+    .about{
+      margin-left:10em;
+      margin-right:10em;
+    }
+    .content{
+      font-size: 1.1em;
+      margin-left: 5em;
+      margin-right: 5em;
+    }
+    .singleProject{
+      margin-left:10em;
+      margin-right:10em;
+      padding-top: 5em;
+    }
+}
+.projects{
+   padding-top:2em;
+   margin-left:0em;
+   margin-right:0em
+}
+
+.singleProject {
+   padding-top:2em;
+}
+.singleProject a {
+   display: inline-block;
+   width: 15em;
+   min-height: 15em;
+   background: #111;
+   text-align: center;
+   vertical-align: middle;;
+}
+.singleProject h2{
+  vertical-align: middle;
+}
+
