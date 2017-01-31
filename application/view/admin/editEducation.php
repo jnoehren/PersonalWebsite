@@ -6,12 +6,12 @@
     foreach($educationArray as $i)
     {
 ?>
-      <h3>Education Entry Number: <?php echo $count; $count++;;?></h3>
+      <h3>Education Entry Number: <?php echo $eduCount; $eduCount++;?></h3>
       <div class = "singleContainer">
       <form class="form-horizontal" method="get" action="<?php echo URL;?>admin/updateEducation">
+      <input type="hidden" name="entry" value="<?php echo $i->Number?>">
       <label class="col-sm-2">School *</label>
       <div class="col-sm-10">
-        <input type="hidden" name="entry" value="<?php echo $i->Number?>">
         <input type="text" name="school" value="<?php echo $i->School?>"required="required"><br>
       </div>
 
