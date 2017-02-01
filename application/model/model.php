@@ -30,7 +30,38 @@ class Model
       $query->execute($parameters);
       header("Refresh:.05;url=".URL ."admin/editPage");
     }
-    
+
+    public function addSkill($skill)
+    {
+      $sql = "INSERT INTO skills (language) VALUES (:skill)";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':skill' => $skill);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }    
+   
+    public function addEmployment($location, $position, $begin, $end, $description)
+    {
+      $sql = "INSERT INTO employment
+              (location, position, begin, end, description)
+              VALUES(:location, :position, :begin, :end, :description)";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':location' => $location, ':position' => $position, ':begin' => $begin, ':end' => $end, ':description' => $description);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+
+    public function addActivity($title, $begin, $end, $location, $description)
+    {
+      $sql = "INSERT INTO activities
+              (title, begin, end, location, description)
+              VALUES(:title, :begin, :end, :location, :description)";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':title' => $title, ':begin' => $begin, ':end' => $end, ':location' => $location, ':description' => $description);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+ 
     public function updateEducation($school, $start, $end, $major, $minor, $graduation, $entry)
     {
       $sql = "UPDATE education 
@@ -53,10 +84,88 @@ class Model
       header("Refresh:.05;url=".URL ."admin/editPage");
     }
 
+    public function updateSkill($skill, $ID)
+    {
+      $sql = "UPDATE skills SET language = :skill WHERE id = :ID";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':skill' => $skill, ':ID' => $ID);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+    
+    public function updateEmployment($location, $position, $begin, $end, $description, $entry)
+    {
+      $sql = "UPDATE employment
+              SET location = :location,
+                  position = :position,
+                  begin = :begin,
+                  end = :end,
+                  description = :description
+              WHERE number = :entry";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':location' => $location, 
+                          ':position' => $position,
+                          ':begin' => $begin,
+                          ':end' => $end,
+                          ':description' => $description,
+                          ':entry' => $entry);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+
+    public function updateActivity($title, $begin, $end, $location, $description, $entry)
+    {
+      $sql = "UPDATE activities
+              SET title = :title,
+                  begin = :begin,
+                  end = :end,
+                  location = :location,
+                  description = :description
+              WHERE number = :entry";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':title' => $title,
+                          ':begin' => $begin,
+                          ':end' => $end,
+                          ':location' => $location,
+                          ':description' => $description,
+                          ':entry' => $entry);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+ 
     public function deleteEducation($entry)
     {
       $sql= "DELETE FROM education
              WHERE number = :entry";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':entry' => $entry);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+
+    public function deleteSkill($ID)
+    {
+      $sql = "DELETE FROM skills WHERE id = :ID";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':ID'=> $ID);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+
+    public function deleteEmployment($entry)
+    {
+      $sql = "DELETE FROM employment
+              WHERE number = :entry";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':entry' => $entry);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
+
+    public function deleteActivity($entry)
+    {
+      $sql = "DELETE FROM activities
+              WHERE number = :entry";
       $query = $this->db->prepare($sql);
       $parameters = array(':entry' => $entry);
       $query->execute($parameters);
