@@ -9,11 +9,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
-<body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
+<body data-spy="scroll" data-target=".navbar" data-offset="0">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -24,9 +22,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo URL;?>">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Projects</a></li>
+            <li><a href="<?php echo URL;?>" active="false">Home</a></li>
+            <li><a href="#about" active="false">About</a></li>
+            <li><a href="#projects" active="false">Projects</a></li>
 
 <?php if(isset($_SESSION['user'])) { ?>
 
@@ -39,7 +37,7 @@
             </li>
 
 <?php }         ?>
-        <li><a href=""><img src='http://seeklogo.com/images/L/linkedin-icon-logo-05B2880899-seeklogo.com.gif' height="30em" width="30em"></a></li>
+        <li><a href="https://www.linkedin.com/in/jnoehren"><img src='http://seeklogo.com/images/L/linkedin-icon-logo-05B2880899-seeklogo.com.gif' height="30em" width="30em"></a></li>
         <li><a href="https://www.facebook.com/jeffrey.noehren"><img src='https://www.abecedamodelu.cz/fotky2554/logo-facebook.png' height="30em" width="30em"></a></li>
 
           </ul>
