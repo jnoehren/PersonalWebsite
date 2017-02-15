@@ -1,5 +1,4 @@
 <div class = "container-fluid">
-
   <div class = "singleContainer">
   <h2>Edit Education</h2>
 <?php
@@ -41,7 +40,7 @@
       </div>
 
       <input name="update" type="submit" value="Update" class="btn btn-primary">
-      <input name="delete" type="submit" value="Delete" class="btn btn-primary">
+      <input name="delete" type="submit" value="Delete" class="btn btn-danger">
       </form>
       </div>
 <?php }  ?>
@@ -79,7 +78,7 @@
         <input type="text" name="graduation" required="required"><br>
       </div>
   
-      <input name="submit" type="submit" value="Submit" class="btn btn-primary">
+      <input name="submit" type="submit" value="Submit" class="btn btn-success">
       </form>
       </div>
 
