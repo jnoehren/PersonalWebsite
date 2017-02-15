@@ -188,8 +188,7 @@ class Model
         echo "You have logged in successfully";
         header("Refresh:2;url=".URL ."admin/editPage");
       }
-      $user = new UserObject($result);
-      return $user;
+      return $result->userName;
     }
 
     public function getEducation()
@@ -318,17 +317,5 @@ class EducationObject
     $this->Minor = $result->minor;
     $this->Graduation = $result->graduation;
     $this->Number = $result->number;
-  }
-}
-class UserObject
-{
-  public $userName = null;
-  function _construct($result)
-  {
-    $this->userName = $result->userName;
-  }
-  public function getName()
-  {
-    return $this->userName;
   }
 }

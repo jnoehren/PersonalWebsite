@@ -15,7 +15,7 @@
           <input type="text" name="skill" value="<?php echo $i->Language?>"required="required"><br>
         </div>
         <input name="update" type="submit" value="Update" class="btn btn-primary">
-        <input name="delete" type="submit" value="Delete" class="btn btn-primary">
+        <input name="delete" type="submit" value="Delete" class="btn btn-danger">
       </form>
       </div>
 <?php }  ?>
@@ -28,7 +28,7 @@
         <input type="text" name="skill" required="required"><br>
       </div>
  
-      <input name="submit" type="submit" value="Submit" class="btn btn-primary">
+      <input name="submit" type="submit" value="Submit" class="btn btn-success">
       </form>
       </div>
 

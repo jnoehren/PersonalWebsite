@@ -1,39 +1,18 @@
 body {
+    position: relative;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 14px;
-}i
-.navigation{
-    position:fixed;
-}
-.navigation img{
-    width:1.5em;
-    height:1.5em;
-}
-.navigation ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-.navigation li {
-    float: right;
-}
-.navigation li a {
-    font-size:20px;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
 }
 
+li {
+    font-size:20px;
+}
 .title {
    text-align:center;
    font-size: 4em;
 }
 .home {
-  background:url('https://static.pexels.com/photos/279/black-and-white-branches-tree-high.jpg') no-repeat center center;
+  background:url('http://wall.rimbuz.com/wp-content/uploads/Forest-Backgrounds.jpg') no-repeat center center;
   background-size:cover;
   height:45em;
   text-align:center;
@@ -43,9 +22,8 @@ body {
    margin:auto;
    text-align: center;
    font-size: 4.5em;
-   color: #fff;
-   text-shadow: 5px 5px #000;  
-   
+   color: #fff; 
+   text-shadow: 5px 5px #000;
 }
 .middle-pannel {
    text-align:center; 
@@ -56,8 +34,12 @@ body {
 .about p {
     font-size: 2em;
 }
-.about a {
+.heading {
     font-weight: bold;
+    font-size: 1em;
+}
+.about a {
+    /*font-weight: bold;*/
 }
 .content {
     font-size: 1.1em;
@@ -65,7 +47,7 @@ body {
     margin-right: 0em;
 }
 .about {
-    padding-top: 3em;
+    padding-top: 5em;
     margin-left:0em;
     margin-right:0em;
 }
@@ -88,21 +70,22 @@ body {
 .projects{
    padding-top:2em;
    margin-left:0em;
-   margin-right:0em
+   margin-right:0em;
 }
-
+.projectGroup {
+   text-align:center;
+}
 .singleProject {
-   padding-top:2em;
-}
-.singleProject a {
-   display: inline-block;
-   width: 15em;
-   min-height: 15em;
-   background: #111;
+   padding-top: 0em;
+   display: inline-block; 
+   width: 20em;
+   min-height: 25em;
+   max-height: 25em;
    text-align: center;
-   vertical-align: middle;;
+   color:white;
+   background: #111;
+   overflow: hidden;
 }
 .singleProject h2{
   vertical-align: middle;
 }
-
