@@ -34,11 +34,24 @@ Class Admin extends DatabaseController
       $educationArray = $this->model->getEducation();
       $activitiesArray = $this->model->getActivities();
       $skillsArray = $this->model->getSkills();
-      require APP . 'view/_templates/header.php';
-      require APP . 'view/admin/editEducation.php';
-      require APP . 'view/admin/editSkills.php';
-      require APP . 'view/admin/editEmployment.php';
-      require APP . 'view/admin/editActivities.php';
+      require APP . 'view/_templates/adminHeader.php';
+      require APP . 'view/admin/selectorPage.php';
+      if(isset($_GET['education'])){ 
+        require APP . 'view/admin/editEducation.php';
+        require APP . 'view/_templates/footer.php';
+      }
+      if(isset($_GET['skills'])){
+        require APP . 'view/admin/editSkills.php';
+        require APP . 'view/_templates/footer.php';
+      }
+      if(isset($_GET['employment'])){  
+        require APP . 'view/admin/editEmployment.php';
+        require APP . 'view/_templates/footer.php';
+      }
+      if(isset($_GET['activities'])){
+        require APP . 'view/admin/editActivities.php';
+        require APP . 'view/_templates/footer.php';
+      }
     }
     else
     {
