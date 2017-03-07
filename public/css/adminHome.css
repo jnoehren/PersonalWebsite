@@ -3,7 +3,9 @@ body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 14px;
 }
-
+.col-sm-15{
+  padding-bottom:1em;
+}
 li {
     font-size:20px;
 }
@@ -88,6 +90,18 @@ li {
 }
 .singleProject h2{
   vertical-align: middle;
+}
+.singleContainer{
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+}
+.headingGroup{
+   text-align: center;
+}
+.editForm{
+   text-align: right;
+   padding-bottom:3em;
 }
 .footer{
     min-height:12em;

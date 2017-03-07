@@ -1,38 +1,41 @@
 <div class = "container-fluid">
 
-  <div class = "singleContainer">
+  <id class = "headingGroup">
   <h2>Edit Activities</h2>
+  </id>
 <?php
     foreach($activitiesArray as $i)
     {
 ?>
+  <id class = "headingGroup">
       <h3>Activites Entry Number: <?php echo $actCount; $actCount++;?></h3>
+  </id>
       <div class = "singleContainer">
-      <form class="form-horizontal" method="get" action="<?php echo URL;?>admin/updateActivities">
+      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateActivities">
       <input type="hidden" name="entry" value="<?php echo $i->Number?>">
-      <label class="col-sm-2">Position *</label>
-      <div class="col-sm-10">
-        <input type="text" name="title" value="<?php echo $i->Title?>"required="required"><br>
+      <label class="col-sm-3">Position *</label>
+      <div class="col-sm-15">
+        <input type="text" name="title" style="width:20em;" value="<?php echo $i->Title?>"required="required"><br>
       </div>
 
-      <label class="col-sm-2">Begin *</label>
-      <div class="col-sm-10">
+      <label class="col-sm-3">Begin *</label>
+      <div class="col-sm-15">
         <input type="text" name="begin" value="<?php echo $i->Begin?>"required="required"><br>
       </div>
 
-      <label class="col-sm-2">End *</label>
-      <div class="col-em-10">
+      <label class="col-sm-3">End *</label>
+      <div class="col-sm-15">
         <input type="text" name="end" value="<?php echo $i->End?>" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Location *</label>
-      <div class="col-sm-10">
-        <input type="text" name="location" value="<?php echo $i->Location?>" required="required"><br>
+      <label class="col-sm-3">Location *</label>
+      <div class="col-sm-15">
+        <input type="text" name="location" style="width:20em;" value="<?php echo $i->Location?>" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Descripion *</label>
-      <div class="col-sm-10">
-        <textarea name="description" cols="50" rows="4"><?php echo $i->Description?></textarea><br>
+      <label class="col-sm-3">Descripion *</label>
+      <div class="col-sm-15">
+        <textarea name="description" cols="80" rows="4"><?php echo $i->Description?></textarea><br>
       </div>
 
       <input name="update" type="submit" value="Update" class="btn btn-primary">
@@ -40,32 +43,34 @@
       </form>
       </div>
 <?php }  ?>
+    <id class="headingGroup">
       <h3>New Activity</h3>
+    </id>
       <div class = "singleContainer">
-      <form class="form-horizontal" method="get" action="<?php echo URL;?>admin/updateActivities">
-      <label class="col-sm-2">Position *</label>
-      <div class="col-sm-10">
-        <input type="text" name="title" required="required"><br>
+      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateActivities">
+      <label class="col-sm-3">Position *</label>
+      <div class="col-sm-15">
+        <input type="text" name="title" style="width:20em;" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Begin *</label>
-      <div class="col-sm-10">
+      <label class="col-sm-3">Begin *</label>
+      <div class="col-sm-15">
         <input type="text" name="begin" required="required"><br>
       </div>
 
-      <label class="col-sm-2">End *</label>
-      <div class="col-em-10">
+      <label class="col-sm-3">End *</label>
+      <div class="col-sm-15">
         <input type="text" name="end" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Location *</label>
-      <div class="col-sm-10">
-        <input type="text" name="location" required="required"><br>
+      <label class="col-sm-3">Location *</label>
+      <div class="col-sm-15">
+        <input type="text" name="location" style="width:20em;" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Description *</label>
-      <div class="col-sm-10">
-        <textarea name="description" cols="50" rows="4"></textarea>
+      <label class="col-sm-3">Description *</label>
+      <div class="col-sm-15">
+        <textarea name="description" cols="80" rows="4"></textarea>
       </div>
 
       <input name="submit" type="submit" value="Submit" class="btn btn-success">
