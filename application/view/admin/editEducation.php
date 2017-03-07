@@ -1,80 +1,86 @@
 <div class = "container-fluid">
-  <div class = "singleContainer">
+  <id class = "headingGroup">
   <h2>Edit Education</h2>
+  </id>
 <?php
     foreach($educationArray as $i)
     {
 ?>
+     <id class="headingGroup">
       <h3>Education Entry Number: <?php echo $eduCount; $eduCount++;?></h3>
+     </id>
       <div class = "singleContainer">
-      <form class="form-horizontal" method="get" action="<?php echo URL;?>admin/updateEducation">
+      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateEducation">
+
       <input type="hidden" name="entry" value="<?php echo $i->Number?>">
-      <label class="col-sm-2">School *</label>
-      <div class="col-sm-10">
-        <input type="text" name="school" value="<?php echo $i->School?>"required="required"><br>
+      <label class="col-sm-3">School *</label>
+      <div class="col-sm-15">
+        <input type="text" name="school" style="width:20em;" value="<?php echo $i->School?>"required="required"><br>
       </div>
 
-      <label class="col-sm-2">Start *</label>
-      <div class="col-sm-10">
+      <label class="col-sm-3">Start *</label>
+      <div class="col-sm-15">
         <input type="text" name="start" value="<?php echo $i->Begin ?>"required="required"><br>
       </div>
 
-      <label class="col-sm-2">End *</label>
-      <div class="col-em-10">
+      <label class="col-sm-3">End *</label>
+      <div class="col-sm-15">
         <input type="text" name="end" value="<?php echo $i->End?>" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Major *</label>
-      <div class="col-sm-10">
-        <input type="text" name="major" value="<?php echo $i->Major?>" required="required"><br>
+      <label class="col-sm-3">Major *</label>
+      <div class="col-sm-15">
+        <input type="text" name="major" style="width:15em;" value="<?php echo $i->Major?>" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Minor</label>
-      <div class="col-sm-10">
-        <input type="text" name="minor" value="<?php echo $i->Minor?>"><br>
+      <label class="col-sm-3">Minor</label>
+      <div class="col-sm-15">
+        <input type="text" name="minor" style="width:15em;"  value="<?php echo $i->Minor?>"><br>
       </div>
 
-      <label class="col-sm-2">Graduation Semester *</label>
-      <div class="col-sm-10">
+      <label class="col-sm-3">Graduation Semester *</label>
+      <div class="col-sm-15">
         <input type="text" name="graduation" value="<?php echo $i->Graduation?>"required="required"><br>
       </div>
-
+     
       <input name="update" type="submit" value="Update" class="btn btn-primary">
       <input name="delete" type="submit" value="Delete" class="btn btn-danger">
       </form>
       </div>
 <?php }  ?>
+    <id class="headingGroup">
       <h3>New Education</h3>
+    </id>
       <div class = "singleContainer">
-      <form class="form-horizontal" method="get" action="<?php echo URL;?>admin/updateEducation">
+      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateEducation">
     
-      <label class="col-sm-2">School *</label>
-      <div class="col-sm-10">
-        <input type="text" name="school" required="required"><br>
+      <label class="col-sm-3">School *</label>
+      <div class="col-sm-15">
+        <input type="text" name="school" style="width:20em;" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Start *</label>
-      <div class="col-sm-10">
+      <label class="col-sm-3">Start *</label>
+      <div class="col-sm-15">
         <input type="text" name="start" required="required"><br>
       </div>
 
-      <label class="col-sm-2">End *</label>
-      <div class="col-em-10">
+      <label class="col-sm-3">End *</label>
+      <div class="col-sm-15">
         <input type="text" name="end" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Major *</label>
-      <div class="col-sm-10">
-        <input type="text" name="major" required="required"><br>
+      <label class="col-sm-3">Major *</label>
+      <div class="col-sm-15">
+        <input type="text" name="major" style="width:15em;" required="required"><br>
       </div>
 
-      <label class="col-sm-2">Minor</label>
-      <div class="col-sm-10">
-        <input type="text" name="minor"><br>
+      <label class="col-sm-3">Minor</label>
+      <div class="col-sm-15">
+        <input type="text" name="minor" style="width:15em;"><br>
       </div>
 
-      <label class="col-sm-2">Graduation Semester *</label>
-      <div class="col-sm-10">
+      <label class="col-sm-3">Graduation Semester *</label>
+      <div class="col-sm-15">
         <input type="text" name="graduation" required="required"><br>
       </div>
   

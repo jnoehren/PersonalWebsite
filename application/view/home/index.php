@@ -96,6 +96,9 @@
       between front end and back. I took the time to sit with each memeber 
       individually so they would understand how the project worked.
     </p>
+    <a href="https://github.com/jnoehren/GatorMarket">
+      <h4>Github</h4>
+    </a>
   </id>
 </div>
 </div>

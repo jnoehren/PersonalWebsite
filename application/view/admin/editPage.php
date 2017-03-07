@@ -15,7 +15,7 @@
     </div>
 
     <label class="col-sm-2">End *</label>
-    <div class="col-em-10">
+    <div class="col-sm-10">
       <input type="text" name="end" required="required"><br>
     </div>
 
@@ -42,5 +42,4 @@
 <form>
 
 </form>
-
 </div>
