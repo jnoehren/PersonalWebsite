@@ -8,6 +8,7 @@ class Home extends DatabaseController
         $educationArray = $this->model->getEducation();
         $activitiesArray = $this->model->getActivities();
         $skillsArray = $this->model->getSkills();
+        $projectsArray = $this->model->getProjects();
         $length = count($skillsArray);
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';

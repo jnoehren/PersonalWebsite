@@ -251,6 +251,41 @@ class Model
       }
       return $skillsResult;
     }  
+
+    public function getProjects()
+    {
+      $sql = "SELECT * FROM projects";
+      $query = $this->db->prepare($sql);
+      $query->execute();
+      $result = $query->fetchAll();
+
+      $skillsResult = array();
+      foreach($result as $i)
+      {
+        $newObject = new ProjectObject($i);
+        $projectResult[] = $newObject;
+      }
+      return $projectResult;
+
+    }
+}
+
+class ProjectObject
+{
+  public $ID = null;
+  public $Link = null;
+  public $Title = null;
+  public $Description = null;
+  public $Git = null;
+
+  function __construct($result)
+  {
+    $this->ID = $result->id;
+    $this->Link = $result->link;
+    $this->Title = $result->title;
+    $this->Description = $result->description;
+    $this->Git = $result->git;
+  }
 }
 
 class SkillObject
