@@ -72,34 +72,30 @@
   </div>
   <br><br>
 <div class="projectGroup">
+<?php
+  foreach($projectsArray as $i)
+  {
+?>
   <id class="singleProject">
-    <a href="<?php echo URL;?>home/formIndex">
-      <h2>CSC 642: Form Project</h2>
+    <a href="<?php echo $i->Link?>">
+      <h2><?php echo $i->Title?></h2>
     </a>
     <p>
-      This was a project that we worked on to teach us how to write forms that
-      are good for user interface. We worked on skills like making sure that 
-      the alignment was right and that each field is sized corrrectly and
-      had a default value to help the user know what is required. 
+      <?php echo $i->Description?> 
     </p>
-  </id>
-
-  <id class="singleProject">
-    <a href="http://ec2-52-53-204-167.us-west-1.compute.amazonaws.com/home/index">
-      <h2>CSC 648: Gator Market</h2>
-    </a>
-    <p>
-      As team leader of a group of four of my peers, we created a website that
-      works like craigslist in the sense that users can buy and sell items
-      that they own. However, our site is marketed toward San Francisco State
-      students. After assessing each indiviuals skills I split the team up 
-      between front end and back. I took the time to sit with each memeber 
-      individually so they would understand how the project worked.
-    </p>
-    <a href="https://github.com/jnoehren/GatorMarket">
+    <?php if($i->Git !== null)
+      {?>
+    <a href="<?php echo $i->Git?>">
       <h4>Github</h4>
     </a>
+    <?php
+      }
+    ?>
   </id>
+<?php
+  }
+?>
+
 </div>
 </div>
 <br><br><br>
