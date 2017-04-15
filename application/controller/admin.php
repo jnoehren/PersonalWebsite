@@ -30,10 +30,12 @@ Class Admin extends DatabaseController
       $skillCount = 1;
       $eduCount = 1;
       $actCount = 1;
+      $proCount = 1;
       $employmentArray = $this->model->getEmployment();
       $educationArray = $this->model->getEducation();
       $activitiesArray = $this->model->getActivities();
       $skillsArray = $this->model->getSkills();
+      $projectsArray = $this->model->getProjects();
       require APP . 'view/_templates/adminHeader.php';
       require APP . 'view/admin/selectorPage.php';
       if(isset($_GET['education'])){ 
@@ -50,6 +52,10 @@ Class Admin extends DatabaseController
       }
       if(isset($_GET['activities'])){
         require APP . 'view/admin/editActivities.php';
+        require APP . 'view/_templates/footer.php';
+      }
+      if(isset($_GET['projects'])){
+        require APP . 'view/admin/editProjects.php';
         require APP . 'view/_templates/footer.php';
       }
     }
