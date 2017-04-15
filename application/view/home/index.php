@@ -1,6 +1,6 @@
 <div class="home" id="home">
   <div class="middle-panel">
-    <p>Jeffrey Noehren</p>
+    <p><?php echo $userObject->Name?></p>
   </div>
 </div>
 

@@ -9,6 +9,7 @@ class Home extends DatabaseController
         $activitiesArray = $this->model->getActivities();
         $skillsArray = $this->model->getSkills();
         $projectsArray = $this->model->getProjects();
+        $userObject = $this->model->getUser($_GET['user']);
         $length = count($skillsArray);
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';

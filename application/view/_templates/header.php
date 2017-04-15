@@ -37,8 +37,8 @@
             </li>
 
 <?php }         ?>
-        <li><a href="https://www.linkedin.com/in/jnoehren"><img src='http://seeklogo.com/images/L/linkedin-icon-logo-05B2880899-seeklogo.com.gif' height="30em" width="30em"></a></li>
-        <li><a href="https://www.facebook.com/jeffrey.noehren"><img src='https://www.abecedamodelu.cz/fotky2554/logo-facebook.png' height="30em" width="30em"></a></li>
+        <li><a href="<?php echo $userObject->LinkedIn?>"><img src='http://seeklogo.com/images/L/linkedin-icon-logo-05B2880899-seeklogo.com.gif' height="30em" width="30em"></a></li>
+        <li><a href="<?php echo $userObject->Facebook?>"><img src='https://www.abecedamodelu.cz/fotky2554/logo-facebook.png' height="30em" width="30em"></a></li>
 
           </ul>
         </div><!--/.nav-collapse -->

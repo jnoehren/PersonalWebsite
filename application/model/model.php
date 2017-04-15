@@ -268,6 +268,31 @@ class Model
       return $projectResult;
 
     }
+    
+    public function getUser($userName)
+    {
+      $sql = "SELECT * FROM login WHERE userName = '" . $userName ."';";
+      $query = $this->db->prepare($sql);
+      $query->execute();
+      $result = $query->fetch();
+
+      $userObject = new UserObject($result);
+      return $userObject;
+    }
+}
+
+class UserObject
+{
+  public $Name = null;
+  public $Facebook = null;
+  public $LinkedIn = null;
+  
+  function __construct($result)
+  {
+    $this->Name = $result->name;
+    $this->Facebook = $result->facebook;
+    $this->LinkedIn = $result->linkedIn;
+  }
 }
 
 class ProjectObject
