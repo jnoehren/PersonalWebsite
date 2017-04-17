@@ -1,8 +1,7 @@
-<div class = "container-fluid">
+<button type="button" class="btn btn-primary heading" data-toggle="collapse" data-target="#skills">Edit Skills</button>
+<br>
+<div id="skills" class = "container-fluid collapse">
 
-  <id class = "headingGroup">
-  <h2>Edit Skills</h2>
-  </id>
 <?php
     foreach($skillsArray as $i)
     {

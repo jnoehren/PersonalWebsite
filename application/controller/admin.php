@@ -37,27 +37,11 @@ Class Admin extends DatabaseController
       $skillsArray = $this->model->getSkills();
       $projectsArray = $this->model->getProjects();
       require APP . 'view/_templates/adminHeader.php';
-      require APP . 'view/admin/selectorPage.php';
-      if(isset($_GET['education'])){ 
-        require APP . 'view/admin/editEducation.php';
-        require APP . 'view/_templates/footer.php';
-      }
-      if(isset($_GET['skills'])){
-        require APP . 'view/admin/editSkills.php';
-        require APP . 'view/_templates/footer.php';
-      }
-      if(isset($_GET['employment'])){  
-        require APP . 'view/admin/editEmployment.php';
-        require APP . 'view/_templates/footer.php';
-      }
-      if(isset($_GET['activities'])){
-        require APP . 'view/admin/editActivities.php';
-        require APP . 'view/_templates/footer.php';
-      }
-      if(isset($_GET['projects'])){
-        require APP . 'view/admin/editProjects.php';
-        require APP . 'view/_templates/footer.php';
-      }
+      require APP . 'view/admin/editEducation.php';
+      require APP . 'view/admin/editSkills.php';
+      require APP . 'view/admin/editEmployment.php';
+      require APP . 'view/admin/editActivities.php';
+      require APP . 'view/admin/editProjects.php';
     }
     else
     {
@@ -125,6 +109,21 @@ Class Admin extends DatabaseController
     if(isset($_GET['delete']))
     {
       $this->model->deleteActivity($_GET['entry']);
+    }
+  }
+
+  public function updateProjects(){
+    if(isset($_GET['submit']))
+    {
+      $this->model->addProject($_GET['title'], $_GET['link'], $_GET['description'], $_GET['git']);
+    }
+    if(isset($_GET['update']))
+    {
+      $this->model->updateProject($_GET['title'], $_GET['link'], $_GET['description'], $_GET['git'], $_GET['entry']);
+    }
+    if(isset($_GET['delete']))
+    {
+      $this->model->deleteProject($_GET['entry']);
     }
   }
 

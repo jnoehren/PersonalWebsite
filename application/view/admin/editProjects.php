@@ -1,8 +1,7 @@
-<div class = "container-fluid">
+<button type="button" class="btn btn-primary heading" data-toggle="collapse" data-target="#projects">Edit Projects</button>
+<br>
+<div id="projects" class = "container-fluid collapse">
 
-  <id class = "headingGroup">
-  <h2>Edit Projects</h2>
-  </id>
 <?php
     foreach($projectsArray as $i)
     {
@@ -11,7 +10,7 @@
       <h3>Project Entry Number: <?php echo $proCount; $proCount++;?></h3>
   </id>
       <div class = "singleContainer">
-      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateActivities">
+      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateProjects">
       <input type="hidden" name="entry" value="<?php echo $i->ID?>">
       <label class="col-sm-3">Title *</label>
       <div class="col-sm-15">
@@ -42,7 +41,7 @@
       <h3>New Project</h3>
     </id>
       <div class = "singleContainer">
-      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateActivities">
+      <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateProjects">
       <label class="col-sm-3">Title *</label>
       <div class="col-sm-15">
         <input type="text" name="title" style="width:20em;" required="required"><br>
