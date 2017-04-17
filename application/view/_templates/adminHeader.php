@@ -22,24 +22,12 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo URL;?>" active="false">Home</a></li>
-            <li><a href="#about" active="false">About</a></li>
-            <li><a href="#projects" active="false">Projects</a></li>
-
+            <li><a href="<?php echo URL;?>?user=<?php echo $_GET['user']?>" active="false">Home</a></li>
+            
 <?php if(isset($_SESSION['user'])) { ?>
+            <li><a href ="<?php echo URL;?>admin/logout">Logout</a></li>
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href ="<?php echo URL;?>admin/editPage">Edit</a></li>
-                <li><a href ="<?php echo URL;?>admin/logout">Logout</a></li>
-              </ul>
-            </li>
-
-<?php }         ?>
-        <li><a href="https://www.linkedin.com/in/jnoehren"><img src='http://seeklogo.com/images/L/linkedin-icon-logo-05B2880899-seeklogo.com.gif' height="30em" width="30em"></a></li>
-        <li><a href="https://www.facebook.com/jeffrey.noehren"><img src='https://www.abecedamodelu.cz/fotky2554/logo-facebook.png' height="30em" width="30em"></a></li>
-
+<?php }?>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

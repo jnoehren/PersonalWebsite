@@ -36,9 +36,8 @@ li {
 .about p {
     font-size: 2em;
 }
-.heading {
-    font-weight: bold;
-    font-size: 1em;
+button.btn.btn-primary.heading {
+    font-size: xx-large;
 }
 .about a {
     /*font-weight: bold;*/
@@ -97,7 +96,7 @@ li {
    width: 50%;
 }
 .headingGroup{
-   text-align: center;
+   text-align:center;
 }
 .editForm{
    text-align: right;
@@ -109,3 +108,15 @@ li {
     width:100%;
     background:#111;
 }
+
+.btn {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+}
+

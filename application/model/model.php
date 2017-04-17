@@ -61,6 +61,17 @@ class Model
       $query->execute($parameters);
       header("Refresh:.05;url=".URL ."admin/editPage");
     }
+
+    public function addProject($title, $link, $description, $git)
+    {
+      $sql = "INSERT INTO projects
+              (title, link, description, git)
+              VALUES(:title, :link, :description, :git)";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':title' => $title, ':link' => $link, ':description' => $description, ':git' => $git);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
  
     public function updateEducation($school, $start, $end, $major, $minor, $graduation, $entry)
     {
@@ -132,6 +143,24 @@ class Model
       $query->execute($parameters);
       header("Refresh:.05;url=".URL ."admin/editPage");
     }
+
+    public function updateProject($title, $link, $description, $git, $entry)
+    {
+      $sql = "UPDATE projects
+              SET title = :title,
+                  link = :link,
+                  description = :description,
+                  git = :git
+              WHERE id = :entry";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':title' => $title,
+                          ':link' => $link,
+                          ':description' => $description,
+                          ':git' => $git,
+                          ':entry' => $entry);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+    }
  
     public function deleteEducation($entry)
     {
@@ -172,6 +201,17 @@ class Model
       header("Refresh:.05;url=".URL ."admin/editPage");
     }
 
+    public function deleteProject($entry)
+    {
+      $sql  = "DELETE FROM projects
+              WHERE id = :entry";
+      $query = $this->db->prepare($sql);
+      $parameters = array(':entry' => $entry);
+      $query->execute($parameters);
+      header("Refresh:.05;url=".URL ."admin/editPage");
+
+    }
+
     public function verifyUser($userName, $password)
     {
       $sql = "SELECT * FROM login WHERE userName = '$userName' AND password = '$password'";
@@ -186,7 +226,7 @@ class Model
       else
       {
         echo "You have logged in successfully";
-        header("Refresh:2;url=".URL ."admin/editPage");
+        header("Refresh:2;url=".URL ."admin/editPage?user=" . $userName);
       }
       return $result->userName;
     }
