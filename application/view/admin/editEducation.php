@@ -10,7 +10,7 @@
      </id>
       <div class = "singleContainer">
       <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateEducation">
-
+      <input type="hidden" name="userName" value="<?php echo $_GET['user']?>">
       <input type="hidden" name="entry" value="<?php echo $i->Number?>">
       <label class="col-sm-3">School *</label>
       <div class="col-sm-15">
@@ -52,7 +52,7 @@
     </id>
       <div class = "singleContainer">
       <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateEducation">
-    
+      <input type="hidden" name="userName" value="<?php echo $_GET['user']?>">
       <label class="col-sm-3">School *</label>
       <div class="col-sm-15">
         <input type="text" name="school" style="width:20em;" required="required"><br>

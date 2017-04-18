@@ -31,11 +31,11 @@ Class Admin extends DatabaseController
       $eduCount = 1;
       $actCount = 1;
       $proCount = 1;
-      $employmentArray = $this->model->getEmployment();
-      $educationArray = $this->model->getEducation();
-      $activitiesArray = $this->model->getActivities();
-      $skillsArray = $this->model->getSkills();
-      $projectsArray = $this->model->getProjects();
+      $employmentArray = $this->model->getEmployment($_GET['user']);
+      $educationArray = $this->model->getEducation($_GET['user']);
+      $activitiesArray = $this->model->getActivities($_GET['user']);
+      $skillsArray = $this->model->getSkills($_GET['user']);
+      $projectsArray = $this->model->getProjects($_GET['user']);
       require APP . 'view/_templates/adminHeader.php';
       require APP . 'view/admin/editEducation.php';
       require APP . 'view/admin/editSkills.php';
@@ -55,75 +55,75 @@ Class Admin extends DatabaseController
   public function updateEducation(){
     if(isset($_GET['submit']))
     {
-      $this->model->addEducation($_GET['school'], $_GET['start'], $_GET['end'], $_GET['major'], $_GET['minor'], $_GET['graduation']);
+      $this->model->addEducation($_GET['school'], $_GET['start'], $_GET['end'], $_GET['major'], $_GET['minor'], $_GET['graduation'], $_GET['userName']);
     }
     if(isset($_GET['update']))
     {
-      $this->model->updateEducation($_GET['school'], $_GET['start'], $_GET['end'], $_GET['major'], $_GET['minor'], $_GET['graduation'], $_GET['entry']);
+      $this->model->updateEducation($_GET['school'], $_GET['start'], $_GET['end'], $_GET['major'], $_GET['minor'], $_GET['graduation'], $_GET['entry'], $_GET['userName']);
     }
     if(isset($_GET['delete']))
     {
-      $this->model->deleteEducation($_GET['entry']);
+      $this->model->deleteEducation($_GET['entry'], $_GET['userName']);
     }
   }
 
   public function updateSkills(){
     if(isset($_GET['submit']))
     {
-      $this->model->addSkill($_GET['skill']);
+      $this->model->addSkill($_GET['skill'], $_GET['userName']);
     }
     if(isset($_GET['update']))
     {
-      $this->model->updateSkill($_GET['skill'], $_GET['ID']);
+      $this->model->updateSkill($_GET['skill'], $_GET['ID'], $_GET['userName']);
     }
     if(isset($_GET['delete']))
     {
-      $this->model->deleteSkill($_GET['ID']);
+      $this->model->deleteSkill($_GET['ID'], $_GET['userName']);
     }
   }
 
   public function updateEmployment(){
     if(isset($_GET['submit']))
     {
-      $this->model->addEmployment($_GET['location'], $_GET['position'], $_GET['begin'], $_GET['end'], $_GET['description']);
+      $this->model->addEmployment($_GET['location'], $_GET['position'], $_GET['begin'], $_GET['end'], $_GET['description'], $_GET['userName']);
     }
     if(isset($_GET['update']))
     {
-      $this->model->updateEmployment($_GET['location'], $_GET['position'], $_GET['begin'], $_GET['end'], $_GET['description'], $_GET['entry']);
+      $this->model->updateEmployment($_GET['location'], $_GET['position'], $_GET['begin'], $_GET['end'], $_GET['description'], $_GET['entry'], $_GET['userName']);
     }
     if(isset($_GET['delete']))
     {
-      $this->model->deleteEmployment($_GET['entry']);
+      $this->model->deleteEmployment($_GET['entry'], $_GET['userName']);
     }
   }
 
   public function updateActivities(){
     if(isset($_GET['submit']))
     {
-      $this->model->addActivity($_GET['title'], $_GET['begin'], $_GET['end'], $_GET['location'], $_GET['description']);
+      $this->model->addActivity($_GET['title'], $_GET['begin'], $_GET['end'], $_GET['location'], $_GET['description'], $_GET['userName']);
     }
     if(isset($_GET['update']))
     {
-      $this->model->updateActivity($_GET['title'], $_GET['begin'], $_GET['end'], $_GET['location'], $_GET['description'], $_GET['entry']);
+      $this->model->updateActivity($_GET['title'], $_GET['begin'], $_GET['end'], $_GET['location'], $_GET['description'], $_GET['entry'], $_GET['userName']);
     }
     if(isset($_GET['delete']))
     {
-      $this->model->deleteActivity($_GET['entry']);
+      $this->model->deleteActivity($_GET['entry'], $_GET['userName']);
     }
   }
 
   public function updateProjects(){
     if(isset($_GET['submit']))
     {
-      $this->model->addProject($_GET['title'], $_GET['link'], $_GET['description'], $_GET['git']);
+      $this->model->addProject($_GET['title'], $_GET['link'], $_GET['description'], $_GET['git'], $_GET['userName']);
     }
     if(isset($_GET['update']))
     {
-      $this->model->updateProject($_GET['title'], $_GET['link'], $_GET['description'], $_GET['git'], $_GET['entry']);
+      $this->model->updateProject($_GET['title'], $_GET['link'], $_GET['description'], $_GET['git'], $_GET['entry'], $_GET['userName']);
     }
     if(isset($_GET['delete']))
     {
-      $this->model->deleteProject($_GET['entry']);
+      $this->model->deleteProject($_GET['entry'], $_GET['userName']);
     }
   }
 

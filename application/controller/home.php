@@ -4,11 +4,11 @@ class Home extends DatabaseController
 {
     public function index()
     {
-        $employmentArray = $this->model->getEmployment();
-        $educationArray = $this->model->getEducation();
-        $activitiesArray = $this->model->getActivities();
-        $skillsArray = $this->model->getSkills();
-        $projectsArray = $this->model->getProjects();
+        $employmentArray = $this->model->getEmployment($_GET['user']);
+        $educationArray = $this->model->getEducation($_GET['user']);
+        $activitiesArray = $this->model->getActivities($_GET['user']);
+        $skillsArray = $this->model->getSkills($_GET['user']);
+        $projectsArray = $this->model->getProjects($_GET['user']);
         $userObject = $this->model->getUser($_GET['user']);
         $length = count($skillsArray);
         require APP . 'view/_templates/header.php';
