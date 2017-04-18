@@ -20,60 +20,62 @@ class Model
         $query->execute($parameters);
     }
     
-    public function addEducation($school, $start, $end, $major, $minor, $graduation)
+    public function addEducation($school, $start, $end, $major, $minor, $graduation, $userName)
     {
       $sql = "INSERT INTO education 
-              (school, begin, end, major, minor, graduation)
-              VALUES(:school, :begin, :end, :major, :minor, :graduation)";
+              (school, begin, end, major, minor, graduation, userName)
+              VALUES(:school, :begin, :end, :major, :minor, :graduation, 
+                     :userName)";
       $query = $this->db->prepare($sql);
-      $parameters = array(':school' => $school, ':begin' => $start, ':end' => $end, ':major' => $major, ':minor' => $minor, ':graduation' => $graduation);
+      $parameters = array(':school' => $school, ':begin' => $start, ':end' => $end, ':major' => $major, ':minor' => $minor, ':graduation' => $graduation, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function addSkill($skill)
+    public function addSkill($skill, $userName)
     {
-      $sql = "INSERT INTO skills (language) VALUES (:skill)";
+      $sql = "INSERT INTO skills (language, userName) VALUES (:skill, :userName)";
       $query = $this->db->prepare($sql);
-      $parameters = array(':skill' => $skill);
+      $parameters = array(':skill' => $skill, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }    
    
-    public function addEmployment($location, $position, $begin, $end, $description)
+    public function addEmployment($location, $position, $begin, $end, $description, $userName)
     {
       $sql = "INSERT INTO employment
-              (location, position, begin, end, description)
-              VALUES(:location, :position, :begin, :end, :description)";
+              (location, position, begin, end, description, userName)
+              VALUES(:location, :position, :begin, :end, 
+                     :description, :userName)";
       $query = $this->db->prepare($sql);
-      $parameters = array(':location' => $location, ':position' => $position, ':begin' => $begin, ':end' => $end, ':description' => $description);
+      $parameters = array(':location' => $location, ':position' => $position, ':begin' => $begin, ':end' => $end, ':description' => $description, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function addActivity($title, $begin, $end, $location, $description)
+    public function addActivity($title, $begin, $end, $location, $description, $userName)
     {
       $sql = "INSERT INTO activities
-              (title, begin, end, location, description)
-              VALUES(:title, :begin, :end, :location, :description)";
+              (title, begin, end, location, description, userName)
+              VALUES(:title, :begin, :end, :location, :description, :userName)";
       $query = $this->db->prepare($sql);
-      $parameters = array(':title' => $title, ':begin' => $begin, ':end' => $end, ':location' => $location, ':description' => $description);
+      $parameters = array(':title' => $title, ':begin' => $begin, ':end' => $end, ':location' => $location, ':description' => $description, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function addProject($title, $link, $description, $git)
+    public function addProject($title, $link, $description, $git, $userName)
     {
       $sql = "INSERT INTO projects
-              (title, link, description, git)
-              VALUES(:title, :link, :description, :git)";
+              (title, link, description, git, userName)
+              VALUES(:title, :link, :description, :git, :userName)";
       $query = $this->db->prepare($sql);
-      $parameters = array(':title' => $title, ':link' => $link, ':description' => $description, ':git' => $git);
+      $parameters = array(':title' => $title, ':link' => $link, ':description' => $description, ':git' => $git, 'userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
  
-    public function updateEducation($school, $start, $end, $major, $minor, $graduation, $entry)
+    public function updateEducation($school, $start, $end, $major, $minor, $graduation, $entry, $userName)
     {
       $sql = "UPDATE education 
               SET school = :school,
@@ -82,7 +84,7 @@ class Model
                   major = :major,
                   minor = :minor,
                   graduation = :graduation
-               WHERE number = :entry";
+               WHERE number = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
       $parameters = array(':school' => $school, 
                           ':begin' => $start, 
@@ -90,21 +92,22 @@ class Model
                           ':major' => $major, 
                           ':minor' => $minor, 
                           ':graduation' => $graduation, 
-                          ':entry' => $entry);
+                          ':entry' => $entry,
+                          ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function updateSkill($skill, $ID)
+    public function updateSkill($skill, $ID, $userName)
     {
-      $sql = "UPDATE skills SET language = :skill WHERE id = :ID";
+      $sql = "UPDATE skills SET language = :skill WHERE id = :ID AND userName = :userName";
       $query = $this->db->prepare($sql);
-      $parameters = array(':skill' => $skill, ':ID' => $ID);
+      $parameters = array(':skill' => $skill, ':ID' => $ID, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
     
-    public function updateEmployment($location, $position, $begin, $end, $description, $entry)
+    public function updateEmployment($location, $position, $begin, $end, $description, $entry, $userName)
     {
       $sql = "UPDATE employment
               SET location = :location,
@@ -112,19 +115,20 @@ class Model
                   begin = :begin,
                   end = :end,
                   description = :description
-              WHERE number = :entry";
+              WHERE number = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
       $parameters = array(':location' => $location, 
                           ':position' => $position,
                           ':begin' => $begin,
                           ':end' => $end,
                           ':description' => $description,
-                          ':entry' => $entry);
+                          ':entry' => $entry,
+                          ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function updateActivity($title, $begin, $end, $location, $description, $entry)
+    public function updateActivity($title, $begin, $end, $location, $description, $entry, $userName)
     {
       $sql = "UPDATE activities
               SET title = :title,
@@ -132,83 +136,85 @@ class Model
                   end = :end,
                   location = :location,
                   description = :description
-              WHERE number = :entry";
+              WHERE number = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
       $parameters = array(':title' => $title,
                           ':begin' => $begin,
                           ':end' => $end,
                           ':location' => $location,
                           ':description' => $description,
-                          ':entry' => $entry);
+                          ':entry' => $entry,
+                          ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function updateProject($title, $link, $description, $git, $entry)
+    public function updateProject($title, $link, $description, $git, $entry, $userName)
     {
       $sql = "UPDATE projects
               SET title = :title,
                   link = :link,
                   description = :description,
                   git = :git
-              WHERE id = :entry";
+              WHERE id = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
       $parameters = array(':title' => $title,
                           ':link' => $link,
                           ':description' => $description,
                           ':git' => $git,
-                          ':entry' => $entry);
+                          ':entry' => $entry,
+                          ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
  
-    public function deleteEducation($entry)
+    public function deleteEducation($entry, $userName)
     {
       $sql= "DELETE FROM education
-             WHERE number = :entry";
+             WHERE number = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
-      $parameters = array(':entry' => $entry);
+      $parameters = array(':entry' => $entry, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function deleteSkill($ID)
+    public function deleteSkill($ID, $userName)
     {
-      $sql = "DELETE FROM skills WHERE id = :ID";
+      $sql = "DELETE FROM skills WHERE id = :ID AND userName = :userName";
       $query = $this->db->prepare($sql);
-      $parameters = array(':ID'=> $ID);
+      $parameters = array(':ID'=> $ID, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function deleteEmployment($entry)
+    public function deleteEmployment($entry, $userName)
     {
       $sql = "DELETE FROM employment
-              WHERE number = :entry";
+              WHERE number = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
-      $parameters = array(':entry' => $entry);
+      $parameters = array(':entry' => $entry, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function deleteActivity($entry)
+    public function deleteActivity($entry, $userName)
     {
       $sql = "DELETE FROM activities
-              WHERE number = :entry";
+              WHERE number = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
-      $parameters = array(':entry' => $entry);
+      $parameters = array(':entry' => $entry, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
     }
 
-    public function deleteProject($entry)
+    public function deleteProject($entry, $userName)
     {
       $sql  = "DELETE FROM projects
-              WHERE id = :entry";
+              WHERE id = :entry AND userName = :userName";
       $query = $this->db->prepare($sql);
-      $parameters = array(':entry' => $entry);
+      $parameters = array(':entry' => $entry, ':userName' => $userName);
       $query->execute($parameters);
-      header("Refresh:.05;url=".URL ."admin/editPage");
+      header("Refresh:.05;url=".URL ."admin/editPage?user=" . $userName);
 
     }
 
@@ -231,9 +237,9 @@ class Model
       return $result->userName;
     }
 
-    public function getEducation()
+    public function getEducation($userName)
     {
-      $sql = "SELECT * FROM education";
+      $sql = "SELECT * FROM education WHERE userName = '$userName'";
       $query = $this->db->prepare($sql);
       $query->execute();
       $result = $query->fetchAll();
@@ -246,9 +252,9 @@ class Model
       return $educationResult;
     }
 
-    public function getEmployment()
+    public function getEmployment($userName)
     {
-      $sql = "SELECT * FROM employment";
+      $sql = "SELECT * FROM employment WHERE userName = '$userName'";
       $query = $this->db->prepare($sql);
       $query->execute();
       $result = $query->fetchAll();
@@ -261,9 +267,9 @@ class Model
       return $employmentResult;
     }
 
-    public function getActivities()
+    public function getActivities($userName)
     {
-      $sql = "SELECT * FROM activities";
+      $sql = "SELECT * FROM activities WHERE userName = '$userName'";
       $query = $this->db->prepare($sql);
       $query->execute();
       $result = $query->fetchAll();
@@ -276,9 +282,9 @@ class Model
       return $activityResult;
     }
 
-    public function getSkills()
+    public function getSkills($userName)
     {
-      $sql = "SELECT * FROM skills";
+      $sql = "SELECT * FROM skills WHERE userName = '$userName'";
       $query = $this->db->prepare($sql);
       $query->execute();
       $result = $query->fetchAll();
@@ -292,9 +298,9 @@ class Model
       return $skillsResult;
     }  
 
-    public function getProjects()
+    public function getProjects($userName)
     {
-      $sql = "SELECT * FROM projects";
+      $sql = "SELECT * FROM projects WHERE userName = '$userName'";
       $query = $this->db->prepare($sql);
       $query->execute();
       $result = $query->fetchAll();

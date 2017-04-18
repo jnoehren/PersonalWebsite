@@ -8,6 +8,7 @@
 ?>
       <div class = "singleContainer">
       <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateSkills">
+        <input type="hidden" name="userName" value="<?php echo $_GET['user']?>">
         <input type="hidden" name="ID" value="<?php echo $i->ID?>">
         <div class="col-sm-3">
           <input type="text" name="skill" value="<?php echo $i->Language?>"required="required"><br>
@@ -28,7 +29,7 @@
       <br>
       <div class = "singleContainer">
       <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateSkills">
-    
+      <input type="hidden" name="userName" value="<?php echo $_GET['user']?>">
       <div class="col-sm-3">
         <input type="text" name="skill" required="required"><br>
       </div>

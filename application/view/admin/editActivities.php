@@ -11,6 +11,7 @@
   </id>
       <div class = "singleContainer">
       <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateActivities">
+      <input type="hidden" name="userName" value="<?php echo $_GET['user']?>">
       <input type="hidden" name="entry" value="<?php echo $i->Number?>">
       <label class="col-sm-3">Position *</label>
       <div class="col-sm-15">
@@ -47,6 +48,7 @@
     </id>
       <div class = "singleContainer">
       <form class="form-horizontal editForm" method="get" action="<?php echo URL;?>admin/updateActivities">
+      <input type="hidden" name="userName" value="<?php echo $_GET['user']?>">
       <label class="col-sm-3">Position *</label>
       <div class="col-sm-15">
         <input type="text" name="title" style="width:20em;" required="required"><br>
